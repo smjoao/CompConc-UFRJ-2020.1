@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     GET_TIME(finish);
 
     // Escreve a imagem de saida usando o caminho digitado na linha de comando
-    if(stbi_write_jpg(argv[2], larg, alt, 3, saida, 100) == 0) {
+    if(stbi_write_png(argv[2], larg, alt, 3, saida, larg * 3) == 0) {
         printf("Erro ao escrever imagem de saída!\n");
         return 5;
     }
