@@ -34,8 +34,8 @@ class MonitorQuickSort {
 
         if(logs) System.out.println("Thread[" + id + "] inseriu [" + arg.inicio + ", " + arg.fim + "] no buffer.");
         
-        // Desbloqueia uma thrad para o caso do buffer estar vazio anteriormente 
-        notify();
+        // Desbloqueia todas as threads para o caso do buffer estar vazio anteriormente 
+        notifyAll();
     }
 
     // Método para remover itens do buffer
@@ -56,11 +56,11 @@ class MonitorQuickSort {
 
         // Remove um item do buffer
         Args arg = this.buffer.remove();
-
-        // Desbloqueia uma outra thread para o caso do buffer estar cheio anteriormente
-        notify();
         
         if(logs) System.out.println("Thread[" + id + "] removeu [" + arg.inicio + ", " + arg.fim + "] do buffer.");
+        
+        // Desbloqueia todas as threads para o caso do buffer estar cheio anteriormente
+        notifyAll();
         
         // Retorna o objeto removido do buffer
         return arg;

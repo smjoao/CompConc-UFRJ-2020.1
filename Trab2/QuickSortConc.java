@@ -99,6 +99,7 @@ class QuickSortConc {
                 list.add(Integer.parseInt(line));
                 line = br.readLine();
             }
+            br.close();
         } catch(Exception e) { System.out.println(e.getMessage()); System.exit(-1); }
 
         // Imprime o vetor original
